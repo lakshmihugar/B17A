@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService:AuthService,
     private router:Router) {
-      this.router.navigate([`$(Login)`]);
+     
     }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   onLogin(loginForm:NgForm){
   console.log(loginForm.value);
   this.authService.authUser(loginForm.value).subscribe();
-    (  Response:UserforLogin) =>{
+    ( Response:UserforLogin) =>{
     console.log(Response);
     const user=Response;
     localStorage.setItem('token',user.token);

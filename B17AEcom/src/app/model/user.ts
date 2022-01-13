@@ -6,12 +6,9 @@ export interface User {
 };
 export interface UserforLogin {
     
-        "userId": 0,
-        firstName: "string",
-        lastName: "string",
+        
         username: "string",
         password: "string",
-        gender: "string",
         token:"string";
       
 };

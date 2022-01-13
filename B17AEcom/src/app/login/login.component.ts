@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { UserforLogin } from '../model/user';
 
 @Component({
   selector: 'app-login',
@@ -12,19 +13,29 @@ export class LoginComponent implements OnInit {
   
 
   constructor(private authService:AuthService,
-    private router:Router) { }
+    private router:Router) {
+      this.router.navigate([`$(Login)`]);
+    }
 
   ngOnInit(): void {
   }
   onLogin(loginForm:NgForm){
   console.log(loginForm.value);
-  const token = this.authService.authUser(loginForm.value);
-  if(token){
-    localStorage.setItem('token',token.userName)
+  this.authService.authUser(loginForm.value).subscribe();
+    (  Response:UserforLogin) =>{
+    console.log(Response);
+    const user=Response;
+    localStorage.setItem('token',user.token);
+    localStorage.setItem('userName',user.username);
     console.log('Login successfull');
+    this.router.navigate(['/']);
   }
-else{
-  console.log('Login not successfull');
-  }
+  //if(token){
+   // localStorage.setItem('token',token.Username)
+    //console.log('Login successfull');
+  //}
+//else{
+  //console.log('Login not successfull');
+  //}
 }
 }

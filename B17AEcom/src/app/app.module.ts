@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './logout/logout.component';
-
+import { Loginuser } from './login/loginuser';
 @NgModule({
   declarations: [
     AppComponent,

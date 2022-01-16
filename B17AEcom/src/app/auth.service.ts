@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { UserforLogin } from './model/user';
+//import { UserforLogin } from './model/user';
 import { Observable, of } from 'rxjs';
+import { Loginuser } from './login/loginuser';
+import { UserforLogin } from './model/user';
+
+
 
 
 @Injectable({
@@ -16,13 +20,12 @@ export class AuthService {
   constructor(private http:HttpClient) { }
   
   login(username: string, password: string): Observable<any> {
-  if (username == this.fakeUsername && password == this.fakePassword) {
-      localStorage.setItem("token", "https://bookcart.azurewebsites.net/api/Login");
-      return of(new HttpResponse({ status: 200 }));
-    } else {
-      return of(new HttpResponse({ status: 401 }));
-    }
+    return this.http.post(this.url+'/api/Login',this.login);
   }
+  loginUser(loginUser:Loginuser):Observable<any>{
+    return this.http.post<any>(this.url+'api/login',loginUser)
+  }
+  
   logout(): void {
     localStorage.removeItem("token");
   }
@@ -41,11 +44,6 @@ export class AuthService {
 authUser(user:UserforLogin){
   return this.http.post(this.url,user);
  }
-//let UserArray=[];
-//if(localStorage.getItem('Users')){
-  //UserArray =JSON.parse(localStorage.getItem('Users') || '{}');
-//}
-//return UserArray.find( (p:any) => p.userName ===  user.userName && p.password === user.password)
-  }
+}
 
 

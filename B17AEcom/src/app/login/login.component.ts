@@ -1,58 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,Validators, FormGroup, FormsModule} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { UserforLogin } from '../model/user';
+//import { UserforLogin } from '../model/user';
 import { Loginuser } from './loginuser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-  massege!: string;
-  error=false;
-logiuser:any
-  Error: boolean=true;
-  constructor(private authService:AuthService,private FormBuilder:FormBuilder,
-    private router:Router) { }
+  public formGroup: any;
+  message: string | undefined;
+  Error = false;
+  logiuser: any
 
-  ngOnInit(): void {}
+  loginForm: any;
 
-  setFormState():void{
-    this.loginForm = this.FormBuilder.group({
-      UserName:['',[Validators.required]],
-      passowod:['',[Validators.required]],
+  constructor(private authService: AuthService, private FormBuilder: FormBuilder,
+    private router: Router) { 
+      
+      }
+      getloginForm(data:any){
+        console.warn(data)
+        this.logiuser.authUser().subscribe((result: any)=>{
+          console.warn(result)
+        })
+      }
+
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      userName:new FormControl('',[Validators.required]),
+      password:new FormControl(),
     })
   }
-  onSubmit(loginForm: NgForm){
+   onSubmit() {
+    //console.log(loginForm.value);
     let login=this.loginForm.value;
-    this.onLogin(login);
+    this.login(login);
   }
 
-  onLogin(loginUser:Loginuser){
+  login(loginUser: Loginuser) {
     this.authService.loginUser(loginUser).subscribe(
-    
-      user=>{
+
+      user => {
         debugger;
         var succ = user;
-        if (succ){
+        if (succ) {
           this.loginForm.reset();
-          localStorage.setItem("user",JSON.stringify(succ));
-          this.router.navigate(['/Registration']);
+          localStorage.setItem("user", JSON.stringify(succ));
+          this.router.navigate(['dashboard']);
         }
-          else{
-            this.Error=true;
-            this.massege = "User ID/passoword wrong";
-           }
+        else {
+          this.Error = true;
+          this.message = "User ID/passoword wrong";
         }
-    )
       }
-    
-    
+    )
   }
-  
+}
+
 

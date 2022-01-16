@@ -20,6 +20,7 @@ export class AuthService {
   constructor(private http:HttpClient) { }
   
   login(username: string, password: string): Observable<any> {
+  
     return this.http.post(this.url+'/api/Login',this.login);
   }
   loginUser(loginUser:Loginuser):Observable<any>{
@@ -37,11 +38,13 @@ export class AuthService {
     return false;
   }
 
-//onlogin(){
-  //return this.http.get(this.url);
-//}
-
-authUser(user:UserforLogin){
+onlogin(){
+  return this.http.get(this.url);
+}
+loginuser(){
+return this.http.get(this.url);
+}
+authUser(user:Loginuser){
   return this.http.post(this.url,user);
  }
 }

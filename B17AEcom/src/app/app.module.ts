@@ -10,10 +10,11 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './logout/logout.component';
-import { Loginuser } from './login/loginuser';
+
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
-import { AlertifyService } from './alertify.service';
-import { Routes } from '@angular/router';
+
+//import { Routes } from '@angular/router';
+
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { Routes } from '@angular/router';
      FormsModule,
     
   ],
-  providers: [AuthService,AlertifyService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

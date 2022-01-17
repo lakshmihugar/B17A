@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   }
   loggedin(){
     return localStorage.getItem('token');
+    
   }
   onLogout(){
 localStorage.removeItem('token');

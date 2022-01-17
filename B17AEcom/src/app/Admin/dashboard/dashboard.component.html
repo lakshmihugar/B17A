@@ -7,10 +7,10 @@
    
         <form class="d-flex">
             <li *ngIf="!loggedin()" class="nav-item">
-                <button class="nav-link" routerLink='login/login' routerLinkactive="active">Login</button>
+                <a class="nav-link" routerLink='login/login' routerLinkactive="active">Login</a>
             </li>
             
-            <li *ngIf="loggedin()"  class="nav-item">
+            <li *ngIf="loggedin()"  class="nav-item" >
                 <button class="nav-link"  *ngIf="loggedin()" (click)="onLogout()" routerLinkactive="active">Logout</button>
            </li>
         </form>

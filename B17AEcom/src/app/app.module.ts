@@ -13,7 +13,6 @@ import { LogoutComponent } from './logout/logout.component';
 
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 
-//import { Routes } from '@angular/router';
 
 
 

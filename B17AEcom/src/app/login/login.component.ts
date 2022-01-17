@@ -3,7 +3,7 @@ import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms'
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { Loginuser } from './loginuser';
+
 import { User, UserforLogin } from '../model/user';
 
 // { Observable, of } from 'rxjs'
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           const user=response;
         localStorage.setItem('token',user.token);
         console.log('Login successfull');
-        this.router.navigate(['/login/login']);
+        this.router.navigate(['/']);
       }
         
       );

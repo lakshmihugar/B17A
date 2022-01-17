@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Bookcart</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,12 +7,12 @@
    
         <form class="d-flex">
             <li *ngIf="!loggedin()" class="nav-item">
-                <a class="nav-link" routerLink='login/login' routerLinkactive="active">Login</a>
+                <a class="text-white" routerLink='login/login' routerLinkactive="active">Login</a>
             </li>
             
-            <li *ngIf="loggedin()"  class="nav-item" >
+           <li *ngIf="loggedin()"  class="nav-item"  >
                 <button class="nav-link"  *ngIf="loggedin()" (click)="onLogout()" routerLinkactive="active">Logout</button>
-           </li>
+           </li> 
         </form>
         
     </div>

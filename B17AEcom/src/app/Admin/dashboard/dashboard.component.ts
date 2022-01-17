@@ -18,5 +18,6 @@ export class DashboardComponent implements OnInit {
   }
   onLogout(){
 localStorage.removeItem('token');
+
   }
 }

@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NavbarComponent } from './navbar/navbar.component';
 const routes: Routes = [
   {
-    path:'Login',component:LoginComponent
+    path:'login/login',component:LoginComponent
   },
   {
-    path:'dashboard',component:DashboardComponent
+    path:'admin/dashboard',component:DashboardComponent
+  },
+  {
+    path:'navbar',component:NavbarComponent
   }
 ];
 

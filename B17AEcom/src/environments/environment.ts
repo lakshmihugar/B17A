@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false
-};
+  
+}
+//const baseUrl="https://bookcart.azurewebsites.net/api/Login";
 
 /*
  * For easier debugging in development mode, you can import the following file

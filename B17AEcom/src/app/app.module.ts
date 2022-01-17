@@ -12,6 +12,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './logout/logout.component';
 import { Loginuser } from './login/loginuser';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { AlertifyService } from './alertify.service';
+import { Routes } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +31,10 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
     AppRoutingModule,
     HttpClientModule,
      ReactiveFormsModule,
-     FormsModule
+     FormsModule,
+    
   ],
-  providers: [AuthService],
+  providers: [AuthService,AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

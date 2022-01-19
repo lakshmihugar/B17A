@@ -12,11 +12,5 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  loggedin(){
-    return localStorage.getItem('userName');
-    return this.loggedinUser;
-}
-onLogout(){
-  localStorage.removeItem('token');
-}
+  
 }

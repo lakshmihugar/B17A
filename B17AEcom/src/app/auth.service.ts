@@ -15,9 +15,7 @@ export class AuthService {
   constructor(private http:HttpClient,private router:Router) { }
   
   
-  onLogin(Loginuser: {}){
-    return this.http.post<any>(this.loginUrl,Loginuser)
-  }
+  
   isLoggedIn(){
     if (localStorage.getItem("token") != null) {
      this.isLoggedin=false;

@@ -6,7 +6,7 @@ import { AuthService } from '../auth.service';
 
 import { User, UserforLogin } from '../model/user';
 
-// { Observable, of } from 'rxjs'
+import { Observable, of } from 'rxjs'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
